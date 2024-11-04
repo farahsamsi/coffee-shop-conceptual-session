@@ -1,9 +1,21 @@
+import { useLoaderData } from "react-router-dom";
+import Cards from "../Components/Cards";
 
 
 const Coffees = () => {
+    const data = useLoaderData();
+
+
     return (
-        <div>
-            <h1>Coffees page</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-6">
+            {
+                data.map(coffee =>
+                    <Cards
+                        key={coffee.id}
+                        coffee={coffee}
+                    >
+                    </Cards>)
+            }
         </div>
     );
 };

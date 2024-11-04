@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 
 const Heading = ({ title, subtitle }) => {
     return (
@@ -8,5 +8,10 @@ const Heading = ({ title, subtitle }) => {
         </div>
     );
 };
+
+Heading.propTypes = {
+    title: PropTypes.string,
+    subtitle: PropTypes.string
+}
 
 export default Heading;
