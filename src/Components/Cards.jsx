@@ -1,13 +1,18 @@
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { FaTrash } from "react-icons/fa6";
 
 
-const Cards = ({ coffee }) => {
+const Cards = ({ coffee, handleRemove }) => {
+    const { pathname } = useLocation();
 
     const { name, image, category, origin, type, id, rating, popularity } = coffee;
 
     return (
         <div className='flex relative'>
+            {
+                pathname === '/dashboard' && <div onClick={() => handleRemove(id)} className='absolute -top-5 -right-5 p-3 rounded-full bg-warning z-50'><FaTrash /></div>
+            }
             <Link
                 to={`/coffees/${id}`}
                 className='transition lg:hover:scale-105 shadow-xl rounded-xl overflow-hidden'
@@ -23,13 +28,15 @@ const Cards = ({ coffee }) => {
                     <p>Rating: {rating}</p>
                     <p>Popular: {popularity}</p>
                 </div>
+
             </Link>
         </div>
     );
 };
 
 Cards.propTypes = {
-    coffee: PropTypes.object
+    coffee: PropTypes.object,
+    handleRemove: PropTypes.func
 }
 
 export default Cards;
