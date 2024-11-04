@@ -9,8 +9,8 @@ const Cards = ({ coffee }) => {
     return (
         <div className='flex relative'>
             <Link
-                to={`/coffee/${id}`}
-                className='transition hover:scale-105 shadow-xl rounded-xl overflow-hidden'
+                to={`/coffees/${id}`}
+                className='transition lg:hover:scale-105 shadow-xl rounded-xl overflow-hidden'
             >
                 <figure className='w-full h-48 overflow-hidden'>
                     <img className='w-full object-contain' src={image} alt='' />
