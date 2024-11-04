@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 
 import nutritionImg from '../../src/assets/nutrition.png'
+import { addFavorite } from "../Components/Utilities";
 
 
 const CoffeeDetails = () => {
@@ -27,6 +28,10 @@ const CoffeeDetails = () => {
         popularity,
     } = coffee;
 
+    const handleFavorite = (coffee) => {
+        addFavorite(coffee);
+    }
+
     return (
         <div className='my-12'>
             {/* Description */}
@@ -44,7 +49,7 @@ const CoffeeDetails = () => {
                 </div>
                 <div>
                     <button
-
+                        onClick={() => handleFavorite(coffee)}
                         className='btn btn-warning'
                     >
                         Add Favorite
