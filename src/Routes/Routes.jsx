@@ -8,6 +8,7 @@ import Dashboard from "../Pages/Dashboard";
 import CoffeeCards from "../Components/CoffeeCards";
 import CoffeeDetails from "../Pages/CoffeeDetails";
 
+
 const routes = createBrowserRouter([
     {
         path: "/",

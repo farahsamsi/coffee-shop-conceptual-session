@@ -3,12 +3,19 @@ import Banner from "../Components/Banner";
 import Heading from "../Utilities/Heading";
 import Categories from "../Components/Categories";
 
+import { HelmetProvider, Helmet } from 'react-helmet-async';
+
+
 
 const Home = () => {
     const categories = useLoaderData();
 
     return (
-        <div>
+        <HelmetProvider>
+            <Helmet>
+                <title>Home | Coffee_Shop</title>
+            </Helmet>
+
             {/* Banner */}
             <Banner></Banner>
 
@@ -24,7 +31,7 @@ const Home = () => {
             {/* Dynamic nested components */}
             <Outlet></Outlet>
 
-        </div>
+        </HelmetProvider>
     );
 };
 

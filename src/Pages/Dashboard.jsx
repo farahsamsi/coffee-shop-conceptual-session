@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Cards from "../Components/Cards";
 import Heading from "../Utilities/Heading";
 import { getAllFavorites, removeFavorite } from "../Components/Utilities";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 
 
@@ -21,7 +22,10 @@ const Dashboard = () => {
     }
 
     return (
-        <>
+        <HelmetProvider>
+            <Helmet>
+                <title>Dashboard | Coffee_Shop</title>
+            </Helmet>
             <Heading
                 title='Welcome to Dashboard'
                 subtitle='Manage coffees that you have previously added as favorite. You can view or remove them from here.'
@@ -32,7 +36,7 @@ const Dashboard = () => {
                     <Cards handleRemove={handleRemove} key={coffee.id} coffee={coffee} />
                 ))}
             </div>
-        </>
+        </HelmetProvider>
     );
 };
 

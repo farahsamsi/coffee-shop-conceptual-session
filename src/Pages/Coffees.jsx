@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Cards from "../Components/Cards";
 import { useState } from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 
 const Coffees = () => {
@@ -21,7 +22,10 @@ const Coffees = () => {
     }
 
     return (
-        <div>
+        <HelmetProvider>
+            <Helmet>
+                <title>Coffees | Coffee_Shop</title>
+            </Helmet>
             <div className='flex justify-between items-center'>
                 <div>
                     <h1 className='text-3xl font-thin'>
@@ -55,7 +59,7 @@ const Coffees = () => {
                         </Cards>)
                 }
             </div>
-        </div>
+        </HelmetProvider>
     );
 };
 
